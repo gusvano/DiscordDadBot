@@ -1,5 +1,6 @@
 import axios from 'axios';
 import dotenv  from 'dotenv';
+import cron from 'node-cron';
 
 dotenv.config();
 
@@ -34,4 +35,8 @@ async function postDadJokeDiscord() {
     }
 }
 
-postDadJokeDiscord();
+cron.schedule('0 0,7-23 * * *', () => {
+    const delay = Math.floor(Math.random() * 1800000);
+    console.log(`Sleeping for ${delay}ms`);
+    setTimeout(postDadJokeDiscord, delay);
+});
