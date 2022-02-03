@@ -28,7 +28,6 @@ async function postDadJokeDiscord() {
 
     try {
         const webhook = process.env.DISCORD_WEBHOOK;
-        console.log(webhook)
         await axios.post(webhook, data);
     } catch (err) {
         console.error(err);
