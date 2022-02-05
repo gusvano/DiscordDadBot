@@ -35,8 +35,8 @@ async function postDadJokeDiscord() {
     }
 }
 
-cron.schedule('0 7-23 * * *', () => {
-    const delay = Math.floor(Math.random() * 1800000);
+cron.schedule('0 7,12,17 * * *', () => {
+    const delay = (Math.floor(Math.random() * 240)) * 60 * 1000;
     console.log(`Sleeping for ${delay}ms`);
     setTimeout(postDadJokeDiscord, delay);
 });
